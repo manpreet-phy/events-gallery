@@ -49,15 +49,23 @@
             margin-top: 15px;
         }
 
-        .gallery img {
-            width: 100%;
+        /* Wrapper to control cropping + hover nicely */
+        .photo {
+            overflow: hidden;
             border-radius: 10px;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 220px;              /* fixed height */
+            object-fit: cover;          /* crop */
+            object-position: center;    /* center crop */
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .gallery img:hover {
-            transform: scale(1.05);
+        .photo img:hover {
+            transform: scale(1.08);
             box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
         }
 
@@ -102,24 +110,27 @@
     <p>School outreach and skywatch event @ IIA Bangalore</p>
 
     <div class="gallery">
-        <img src="1_TOV.jpg" onclick="openImage(this.src)">
-        <img src="2_TOV.jpg" onclick="openImage(this.src)">
-        <img src="3_TOV.jpg" onclick="openImage(this.src)">
-        <img src="4_TOV.jpg" onclick="openImage(this.src)">
+        <div class="photo"><img src="1_TOV.jpg" onclick="openImage(this.src)"></div>
+        <div class="photo"><img src="2_TOV.jpg" onclick="openImage(this.src)"></div>
+        <div class="photo"><img src="3_TOV.jpg" onclick="openImage(this.src)"></div>
+        <div class="photo"><img src="4_TOV.jpg" onclick="openImage(this.src)"></div>
     </div>
 </div>
 
 <!-- Event 2 -->
 <div class="event">
     <h2>Participation in Republic Day 2009</h2>
-    <p>Truly honoured to be part of the Republic Day Parade in New Delhi and to have the privilege of meeting <br>
-       Her Excellency, the President of India, Smt. Pratibha Patil.</p>
+    <p>
+        Truly honoured to be part of the Republic Day Parade in New Delhi and to have the privilege of meeting <br>
+        Her Excellency, the President of India, Smt. Pratibha Patil.
+    </p>
+
     <div class="gallery">
-        <img src="RD_1.jpg" onclick="openImage(this.src)">
-        <img src="RD_2.jpg" onclick="openImage(this.src)">
-        <img src="RD_3.jpg" onclick="openImage(this.src)">
-        <img src="RD_4.jpg" onclick="openImage(this.src)">
-        <img src="RD_5.jpg" onclick="openImage(this.src)">
+        <div class="photo"><img src="RD_1.jpg" onclick="openImage(this.src)"></div>
+        <div class="photo"><img src="RD_2.jpg" onclick="openImage(this.src)"></div>
+        <div class="photo"><img src="RD_3.jpg" onclick="openImage(this.src)"></div>
+        <div class="photo"><img src="RD_4.jpg" onclick="openImage(this.src)"></div>
+        <div class="photo"><img src="RD_5.jpg" onclick="openImage(this.src)"></div>
     </div>
 </div>
 
@@ -142,7 +153,7 @@ function closeImage() {
     document.getElementById("lightbox").style.display = "none";
 }
 
-/* Optional: ESC key to close */
+/* ESC key to close */
 document.addEventListener("keydown", function(e) {
     if (e.key === "Escape") {
         closeImage();
